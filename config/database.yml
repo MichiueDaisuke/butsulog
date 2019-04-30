@@ -26,5 +26,5 @@ production:
   pool: 5
   database: hoge_app_production
   username: root
-  password: xdQmA3zmuV>N # その1で設定したサーバー側のmysqlのパスワード
+  password: Daisuke514@
   socket: /var/lib/mysql/mysql.sock
