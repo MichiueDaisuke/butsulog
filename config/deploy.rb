@@ -30,10 +30,37 @@ set :rbenv_ruby, '2.5.0'
 # 出力するログのレベル。
 set :log_level, :debug
 
-# デプロイ前に実行する必要がある。
-desc 'execute before deploy'
-task :db_create do
-  on roles(:db) do |host|
-    execute "mysql --user=michiue --password=Daisu514@ -e 'CREATE DATABASE IF NOT EXISTS hoge_app_production;'"
+# デプロイのタスク
+namespace :deploy do
+
+  # unicornの再起動
+  desc 'Restart application'
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+
+  # データベースの作成
+  desc 'Create database'
+  task :db_create do
+    on roles(:db) do |host|
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+                  # データベース作成のsqlセット
+                # データベース名はdatabase.ymlに設定した名前で
+                  sql = "CREATE DATABASE IF NOT EXISTS hoge_app_production;"
+                  # クエリの実行。
+                # userとpasswordはmysqlの設定に合わせて
+                execute "mysql --user=root --password=Daisuke514@ -e '#{sql}'"
+
+        end
+      end
+    end
+  end
+
+  after :publishing, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+    end
   end
 end
