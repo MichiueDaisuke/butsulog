@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prefectures: 1
+  address: MyText
+  buildingname: MyText
+  reputation: MyText
+
+two:
+  prefectures: 1
+  address: MyText
+  buildingname: MyText
+  reputation: MyText
