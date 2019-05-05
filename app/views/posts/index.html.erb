@@ -1,17 +1,9 @@
-<header>
-  <div class="header-logo">
-    <a href="/">SHOEN</a>
-  </div>
-  <ul class="header-menus">
-    <li>SHOENとは</li>
-  </ul>
-</header>
-a
+
 <div class="main posts-index">
   <div class="container">
     <% @posts.each do |post| %>
     <div class="posts-index-item">
-      <%= post.reputation %>
+      <%= link_to(post.reputation,"/posts/#{post.id}") %>
     </div>
     <% end %>
   </div>
