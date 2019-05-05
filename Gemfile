@@ -78,6 +78,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
+  gem 'capistrano-rails-console', require: false # 手元の環境からデプロイ先のconsoleを使う
 end
 
 group :production, :staging do
