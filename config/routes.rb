@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get "posts/:id" => "posts#show"
 
-  post 'posts/create' => 'posts#create'
+  # post 'posts/create' => 'posts#create'
 
   get '/' => 'home#top'
 end
