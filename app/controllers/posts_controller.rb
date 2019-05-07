@@ -11,6 +11,8 @@ class PostsController < ApplicationController
   end
 
   def create
+    post = Post.new(reputation: params[:reputation])
+    post.save
     redirect_to("/")
   end
 end
