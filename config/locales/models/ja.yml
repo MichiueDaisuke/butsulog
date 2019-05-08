@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      posts: 投稿
+    attributes:
+      posts:
+        prefecture: 都道府県
+        reputation: 評判

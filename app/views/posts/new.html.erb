@@ -4,7 +4,12 @@
     <%= form_tag("/posts/create") do %>
       <div class="form">
         <div class="form-body">
-          <textarea name="reputation"></textarea>
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <textarea name="reputation"><%= @post.reputation %></textarea>
           <input type="submit" value="投稿">
         </div>
       </div>
