@@ -20,9 +20,10 @@
   </ul>
 </header>
 <% if flash[:notice] %>
-  <div class="flash">
+    <div class="flash alert-primary" role="alert">
     <%= flash[:notice] %>
   </div>
+
 <% end %>
 <%= yield %>
 </body>
